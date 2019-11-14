@@ -1,4 +1,3 @@
-//package main
 package dp
 
 import (
@@ -65,6 +64,38 @@ func Jump(n int) int {
 	//return *ptr_result
 	return result
 }
+func Tri(n int, matrix [][]int) int {
+	//recordMatrixRow := make([]int, 5)
+	recordMatrix := make([][5]int, 5)
+	//init
+	recordMatrix[0][0] = matrix[0][0]
+	//begin
+	for i := 1; i < n; i++ {
+		for j := 0; j < i+1; j++ {
+			if j == 0 {
+				recordMatrix[i][j] = recordMatrix[i-1][j] + matrix[i][j]
+				fmt.Println(recordMatrix)
+			} else if i == j {
+				recordMatrix[i][j] = recordMatrix[i-1][j-1] + matrix[i][j]
+				fmt.Println(recordMatrix)
+			} else {
+				recordMatrix[i][j] = max(recordMatrix[i-1][j]+matrix[i][j], recordMatrix[i-1][j-1]+matrix[i][j])
+				fmt.Println(recordMatrix)
+
+			}
+		}
+
+	}
+
+	fmt.Println(recordMatrix)
+	maxValue := recordMatrix[n-1][0]
+	for i := 1; i < n; i++ {
+		if recordMatrix[n-1][i] > maxValue {
+			maxValue = recordMatrix[n-1][i]
+		}
+	}
+	return maxValue
+}
 
 func main() {
 
@@ -100,5 +131,14 @@ func main() {
 	fmt.Println(Jump(3))
 	fmt.Println(Jump(4))
 	fmt.Println(Jump(5))
+
+	matrix := [][]int{
+		{7},
+		{8, 3},
+		{8, 1, 0},
+		{4, 3, 3, 6},
+		{4, 4, 4, 4, 4},
+	}
+	fmt.Println(Tri(5, matrix))
 
 }
