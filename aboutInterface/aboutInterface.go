@@ -22,6 +22,7 @@ func (s *AKindOfStrut) FunctionB() string {
 	//fmt.Println("hello")
 	return "hello,B"
 }
+
 //通过以下语法判断某个数据类型是否全部了所有的借口
 //如果没有实现，则会编译失败
 // 	type T struct{}

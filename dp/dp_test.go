@@ -1,4 +1,4 @@
-package main
+package dp
 
 import (
 	"testing"
@@ -7,18 +7,18 @@ import (
 
 func TestRob(t *testing.T) {
 
-	for index,unit :=range[]struct{
+	for index, unit := range []struct {
 		house []int
 		money int
 	}{
-		{[]int{1,2,5,2,1,3},9},
-		{[]int{1},1},
-		{[]int{1,2},2},
-		{[]int{1,2,3},4},
-		{[]int{},0},
-	}{
-		if unit.money !=Rob(unit.house){
-			t.Errorf("wrong index %d",index)
+		{[]int{1, 2, 5, 2, 1, 3}, 9},
+		{[]int{1}, 1},
+		{[]int{1, 2}, 2},
+		{[]int{1, 2, 3}, 4},
+		{[]int{}, 0},
+	} {
+		if unit.money != Rob(unit.house) {
+			t.Errorf("wrong index %d", index)
 		}
 	}
 
@@ -35,11 +35,11 @@ func TestRob(t *testing.T) {
 func BenchmarkRob(b *testing.B) {
 	// b.N会根据函数的运行时间取一个合适的值
 	for i := 0; i < b.N; i++ {
-		_=Rob([]int{1,2,5,2,1,3})
+		_ = Rob([]int{1, 2, 5, 2, 1, 3})
 	}
 }
 func BenchmarkJump(b *testing.B) {
-	for i:=0;i<b.N;i++{
-		_=Jump(i)
+	for i := 0; i < b.N; i++ {
+		_ = Jump(i)
 	}
 }

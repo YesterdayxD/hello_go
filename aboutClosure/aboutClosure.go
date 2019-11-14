@@ -1,4 +1,5 @@
 package aboutClosure
+
 //package main
 
 import "fmt"
@@ -19,8 +20,8 @@ func AnotherClosureFunction() func() {
 }
 func ThirdClosureFunction(str string) func(i int) int {
 	fmt.Println(str)
-	n:=0
-	return func(i int)int {
+	n := 0
+	return func(i int) int {
 		fmt.Println(n)
 		n += 1
 		return i
@@ -31,7 +32,7 @@ func main() {
 	aFunc()
 	aFunc()
 	aFunc()
-	bFunc:=ThirdClosureFunction("hello")
+	bFunc := ThirdClosureFunction("hello")
 	fmt.Println(bFunc(100))
 	fmt.Println(bFunc(200))
 	fmt.Println(bFunc(300))

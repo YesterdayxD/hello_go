@@ -6,6 +6,6 @@ import (
 )
 
 func TestRun(t *testing.T) {
-	my_string:=printHello()
+	my_string := printHello()
 	fmt.Println(my_string)
 }

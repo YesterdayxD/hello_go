@@ -2,11 +2,10 @@ package tttt
 
 import "log"
 
-func init(){
+func init() {
 	log.SetPrefix("Trace: ")
-	log.SetFlags(log.Ldate|log.Lmicroseconds|log.Llongfile)
+	log.SetFlags(log.Ldate | log.Lmicroseconds | log.Llongfile)
 }
 func main() {
 	log.Println("message ")
 }
-
